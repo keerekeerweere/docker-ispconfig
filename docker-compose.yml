@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  ispconfig:
+    extends:
+      file: docker-compose.build.yml
+      service: ispconfig
+    environment:
+      # Add runtime environment variables here
+    volumes:
+      # Mount persistent volumes
+      - /data/www:/var/www
+      - /data/backup:/var/backup
+    ports:
+      - "9090:8080"
+      - "9443:443"
+      - "8888:80"
